@@ -2,8 +2,18 @@
 'use strict';
 
 var fs = require('fs');
+var mongoose = require('mongoose');
 var express = require('express');
 var app = express();
+
+
+mongoose.connect('mongodb://jaknap_9:xxxxx@ds259079.mlab.com:59079/url_hash',{useMongoClient: true});
+
+let countersSchema = new mongoose.Schema({
+    _id: { type: String, required: true },
+    count: { type: Number, default: 0 }
+});
+
 
 if (!process.env.DISABLE_XORIGIN) {
   app.use(function(req, res, next) {
@@ -32,7 +42,7 @@ app.route('/_api/package.json')
 /*
 app.route('/')
     .get(function(req, res) {
-		  res.sendFile(process.cwd() + '/views/index.html');
+      res.sendFile(process.cwd() + '/views/index.html');
     })
 */
 
@@ -42,7 +52,7 @@ app.route('/new*')
       let returnVal = (req.path).slice(5);
       //{ "original_url":"http://foo.com:80", "short_url":"https://little-url.herokuapp.com/8170" }
       let jsonBody = {"original_url": returnVal};
-		  res.send(jsonBody);
+      res.send(jsonBody);
     })
 
 
