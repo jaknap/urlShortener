@@ -40,10 +40,10 @@ app.route('/')
     })
 */
 
-app.route('/:url')
+app.route('/new/*')
     .get(function(req, res) {
-      console.log();
-		  res.send(req.params.url);
+      //console.log();
+		  res.send(req.originalUrl);
     })
 
 
