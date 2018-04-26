@@ -40,10 +40,13 @@ app.route('/')
     })
 */
 
-app.route('/new/*')
+app.route('/new*')
     .get(function(req, res) {
       //console.log();
-		  res.send(req.originalUrl);
+      let returnVal = (req.path).slice(5);
+      //{ "original_url":"http://foo.com:80", "short_url":"https://little-url.herokuapp.com/8170" }
+      let jsonBody = {"original_url": returnVal};
+		  res.send(jsonBody);
     })
 
 
