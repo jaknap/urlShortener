@@ -32,17 +32,18 @@ app.route('/_api/package.json')
       res.type('txt').send(data.toString());
     });
   });
-  
+
+/*
 app.route('/')
     .get(function(req, res) {
 		  res.sendFile(process.cwd() + '/views/index.html');
     })
+*/
 
-
-app.route('/new/:url')
+app.route('/:url')
     .get(function(req, res) {
       console.log();
-		  res.send(req.params);
+		  res.send(req.params.url);
     })
 
 
