@@ -6,7 +6,7 @@ let mongoose = require('mongoose');
 let express = require('express');
 let app = express();
 let promise;
-let connectionString = 'mongodb://jaknap_9:2tunacan@ds259079.mlab.com:59079/url_hash'; 
+let connectionString = 'mongodb://xxxx:xxxxx@ds259079.mlab.com:59079/url_hash'; 
 let bodyParser = require('body-parser');
 let btoa = require('btoa');
 let atob = require('atob');
